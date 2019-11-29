@@ -1,5 +1,7 @@
 FROM node:latest as buildFrontend
 COPY . /src
+WORKDIR /src
+RUN npm install
 RUN cd src && npm run build
 
 FROM golang:alpine AS buildBackend
