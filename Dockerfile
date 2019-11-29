@@ -13,6 +13,7 @@ RUN cd /src && go build -o goapp
 
 # final stage
 FROM alpine
+EXPOSE 8081
 WORKDIR /app
 COPY --from=buildBackend /src/goapp /app/
 COPY --from=buildFrontend /src/build /app/build/
