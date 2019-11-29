@@ -2,7 +2,7 @@ FROM node:latest as buildFrontend
 COPY . /src
 WORKDIR /src
 RUN npm install
-RUN cd src && npm run build
+RUN npm run build
 
 FROM golang:alpine AS buildBackend
 RUN apk --no-cache add build-base git bzr mercurial gcc
